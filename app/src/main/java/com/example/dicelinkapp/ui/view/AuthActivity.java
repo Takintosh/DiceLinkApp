@@ -1,5 +1,8 @@
 package com.example.dicelinkapp.ui.view;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +22,10 @@ import java.util.Map;
 
 public class AuthActivity extends AppCompatActivity implements FragmentCallback {
 
+    // Constants for SharedPreferences
+    private static final String PREFS_NAME = "MyPrefs";
+    private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
+
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
@@ -32,6 +39,16 @@ public class AuthActivity extends AppCompatActivity implements FragmentCallback 
         SplashScreen.installSplashScreen(this);
 
         super.onCreate(savedInstanceState);
+
+        // Check if the user has previously logged in
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        boolean isLoggedIn = prefs.getBoolean(KEY_IS_LOGGED_IN, false);
+
+        if (isLoggedIn) {
+            // If the user has logged in, redirect to DashboardActivity
+            redirectToDashboard();
+            return; // Exit onCreate method to avoid showing the login screen
+        }
 
         // Enable edge-to-edge layout
         EdgeToEdge.enable(this);
@@ -84,4 +101,20 @@ public class AuthActivity extends AppCompatActivity implements FragmentCallback 
     private FragmentFactory getFragmentFactory(String fragmentClassName) {
         return fragmentFactoryMap.get(fragmentClassName);
     }
+
+    // Method to redirect to DashboardActivity
+    public void redirectToDashboard() {
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+        finish(); // Finish AuthActivity to prevent user from going back by pressing the back button
+    }
+
+    // Method to save session state indicating that the user is logged in
+    public void saveSessionState() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(KEY_IS_LOGGED_IN, true);
+        editor.apply();
+    }
+
 }

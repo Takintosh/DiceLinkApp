@@ -99,6 +99,11 @@ public class RegisterFragment extends Fragment {
 
                 // Show toast message indicating user registration
                 Toast.makeText(getContext(), "User Registered", Toast.LENGTH_SHORT).show();
+                if (getActivity() instanceof FragmentCallback) {
+                    // Call saveSessionState() method of the activity to save session state
+                    mListener.saveSessionState();
+                    mListener.redirectToDashboard();
+                }
             }
         });
 

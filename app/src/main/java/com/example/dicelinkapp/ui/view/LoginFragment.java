@@ -1,7 +1,6 @@
 package com.example.dicelinkapp.ui.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -22,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dicelinkapp.R;
-
 
 public class LoginFragment extends Fragment {
 
@@ -83,7 +81,6 @@ public class LoginFragment extends Fragment {
         tvSignUp.setText(ssSignUp);
         tvSignUp.setMovementMethod(LinkMovementMethod.getInstance());
 
-
         // Create a spannable string with the entire text as a link
         String stringForgotPassword = getString(R.string.forgotPassword);
         SpannableString ssForgotPassword = new SpannableString(stringForgotPassword);
@@ -117,8 +114,11 @@ public class LoginFragment extends Fragment {
                 if (username.equals(uUsername) && password.equals(uPassword)) {
                     // Show login success message and start DashboardActivity
                     Toast.makeText(getContext(), "Login", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(), DashboardActivity.class);
-                    startActivity(intent);
+                    if (getActivity() instanceof FragmentCallback) {
+                        // Call saveSessionState() method of the activity to save session state
+                        mListener.saveSessionState();
+                        mListener.redirectToDashboard();
+                    }
                 } else {
                     // Show invalid user message
                     Toast.makeText(getContext(), "Invalid User", Toast.LENGTH_SHORT).show();
