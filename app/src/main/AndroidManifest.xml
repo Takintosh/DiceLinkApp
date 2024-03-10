@@ -10,10 +10,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DiceLinkApp"
+        android:theme="@style/Theme.DiceLinkApp.SplashScreen"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.view.DashboardActivity"
+            android:theme="@style/Theme.DiceLinkApp"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
