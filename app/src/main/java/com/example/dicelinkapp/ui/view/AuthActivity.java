@@ -49,6 +49,7 @@ public class AuthActivity extends AppCompatActivity implements FragmentCallback 
         // Add associations between fragment class names and their factory classes
         fragmentFactoryMap.put(RegisterFragment.class.getName(), new RegisterFragmentFactory());
         fragmentFactoryMap.put(LoginFragment.class.getName(), new LoginFragmentFactory());
+        fragmentFactoryMap.put(PasswordRecoveryFragment.class.getName(), new PasswordRecoveryFragmentFactory());
 
         // Add initial fragment to the container
         addFragment();

@@ -61,16 +61,16 @@ public class LoginFragment extends Fragment {
         etPassword = view.findViewById(R.id.etPassword);
         btnSignIn = view.findViewById(R.id.btnSignIn);
         btnSignInGoogle = view.findViewById(R.id.btnSignInGoogle);
-        TextView textView = view.findViewById(R.id.tvSignUpHint);
+        TextView tvSignUp = view.findViewById(R.id.tvSignUpHint);
+        TextView tvForgotPassword = view.findViewById(R.id.tvForgotPassword);
 
         // Create spannable string for sign-up hint text
-        String tvComplete = getString(R.string.signUpHint, getString(R.string.signUpLink));
-        SpannableString spannableString = new SpannableString(tvComplete);
-
+        String tvSignUpComplete = getString(R.string.signUpHint, getString(R.string.signUpLink));
+        SpannableString ssSignUp = new SpannableString(tvSignUpComplete);
         // Set up clickable span for sign-up link
-        int startIndex = tvComplete.indexOf(getString(R.string.signUpLink));
+        int startIndex = tvSignUpComplete.indexOf(getString(R.string.signUpLink));
         int endIndex = startIndex + getString(R.string.signUpLink).length();
-        ClickableSpan clickableSpan = new ClickableSpan() {
+        ClickableSpan csSignUp = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
                 // Call onFragmentReplace() method of the activity to replace fragment
@@ -79,9 +79,26 @@ public class LoginFragment extends Fragment {
                 }
             }
         };
-        spannableString.setSpan(clickableSpan, startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(spannableString);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        ssSignUp.setSpan(csSignUp, startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tvSignUp.setText(ssSignUp);
+        tvSignUp.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+        // Create a spannable string with the entire text as a link
+        String stringForgotPassword = getString(R.string.forgotPassword);
+        SpannableString ssForgotPassword = new SpannableString(stringForgotPassword);
+        ClickableSpan csForgotPassword = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                // Call onFragmentReplace() method of the activity to replace fragment
+                if (mListener != null) {
+                    mListener.onFragmentReplace(PasswordRecoveryFragment.class.getName());
+                }
+            }
+        };
+        ssForgotPassword.setSpan(csForgotPassword, 0, ssForgotPassword.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tvForgotPassword.setText(ssForgotPassword);
+        tvForgotPassword.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Set click listener for sign-in button
         btnSignIn.setOnClickListener(new View.OnClickListener() {

@@ -22,4 +22,8 @@
     <string name="termsAndConditionsCheckbox">I agree to the terms and conditions</string>
     <string name="privacyCheckbox">I agree to the privacy policy</string>
 
+    <string name="tvPassRecovery">Password Recovery</string>
+    <string name="usernameOrEmail">Username or Email</string>
+    <string name="recoveryBtn">Recover Password</string>
+
 </resources>
