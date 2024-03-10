@@ -7,14 +7,16 @@
     <string name="passwordHint">Password</string>
     <string name="forgotPassword">Forgot Password?</string>
     <string name="loginOr">- Or -</string>
-    <string name="signIn">Sign In</string>
+    <string name="signInBtn">Sign In</string>
     <string name="signInWithGoogle">Sign In with Google</string>
-    <string name="signUpHint">Don\'t have an account? Sign up</string>
-    <string name="signUp">Sign Up</string>
+    <string name="signUpHint">Don\'t have an account? %1$s</string>
+    <string name="signUpLink">Sign Up</string>
 
     <string name="register">Register</string>
     <string name="registerSub">Create your new account</string>
-    <string name="signInHint">Already have an account? Sign in</string>
+    <string name="signInHint">Already have an account? %1$s</string>
+    <string name="signInLink">Sign In</string>
+    <string name="signUpBtn">Sign Up</string>
     <string name="signUpOr">- Or -</string>
     <string name="signUpGoogle">Sign Up with Google</string>
     <string name="termsAndConditionsCheckbox">I agree to the terms and conditions</string>
