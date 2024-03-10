@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Theme.DiceLinkApp.SplashScreen" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">#E3E3E3</item>
+        <item name="windowSplashScreenBackground">#F8F8F8</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splashscreen_dice</item>
         <item name="postSplashScreenTheme">@style/Theme.DiceLinkApp</item>
     </style>
