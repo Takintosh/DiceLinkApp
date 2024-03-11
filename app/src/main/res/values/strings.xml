@@ -26,4 +26,17 @@
     <string name="usernameOrEmail">Username or Email</string>
     <string name="recoveryBtn">Recover Password</string>
 
+    <string name="nav_title_explore">Explore</string>
+    <string name="nav_title_gametables">Game Tables</string>
+    <string name="nav_title_account">Account</string>
+    <string name="nav_title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dashboard_alt">DashboardAltActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+
 </resources>
