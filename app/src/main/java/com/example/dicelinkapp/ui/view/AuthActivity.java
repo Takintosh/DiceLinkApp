@@ -104,7 +104,7 @@ public class AuthActivity extends AppCompatActivity implements FragmentCallback 
 
     // Method to redirect to DashboardActivity
     public void redirectToDashboard() {
-        Intent intent = new Intent(this, DashboardActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
         finish(); // Finish AuthActivity to prevent user from going back by pressing the back button
     }
