@@ -17,22 +17,28 @@ public class AccountFragment extends Fragment {
 
     private FragmentAccountBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        AccountViewModel accountViewModel =
-                new ViewModelProvider(this).get(AccountViewModel.class);
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Create ViewModel for AccountFragment
+        AccountViewModel accountViewModel = new ViewModelProvider(this).get(AccountViewModel.class);
 
+        // Inflate the layout for this fragment using ViewBinding
         binding = FragmentAccountBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        // Find TextView from layout
         final TextView textView = binding.textAccount;
+
+        // Observe LiveData from ViewModel to update TextView
         accountViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         return root;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        // Clear the ViewBinding reference to avoid memory leaks
         binding = null;
     }
 }

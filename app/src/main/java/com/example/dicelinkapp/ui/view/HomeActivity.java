@@ -3,7 +3,6 @@ package com.example.dicelinkapp.ui.view;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +10,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -20,7 +18,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.dicelinkapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -31,21 +28,27 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Apply window insets to adjust padding based on system bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
+        // Setup navigation components
         setupNavigation();
 
+        // Set up toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Initialize notifications fragment
         notificationsFragment = new NotificationsFragment();
 
     }
 
+    // Set up the bottom navigation bar with NavController.
     private void setupNavigation() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
@@ -57,9 +60,9 @@ public class HomeActivity extends AppCompatActivity {
 
         NavController navController = navHostFragment.getNavController();
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            // Verificar si el destino actual es diferente al destino de notificaciones
+            // Check if the current destination is different from the notifications destination
             if (destination.getId() != R.id.fragment_container) {
-                // Ocultar el fragmento de notificaciones
+                // Hide the notifications fragment
                 hideNotificationsFragment();
             }
         });
@@ -67,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
@@ -75,37 +79,44 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_notifications) {
+            // Toggle visibility of notifications fragment
             toggleNotificationsFragment();
             return true;
         }
         return true;
     }
 
+    // Toggle the visibility of the notifications fragment.
     private void toggleNotificationsFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (isNotificationsFragmentVisible) {
-            // Oculta el fragmento de notificaciones
+            // Hide the notifications fragment
             transaction.hide(notificationsFragment);
-            Toast.makeText(this, "Fragmento ocultado", Toast.LENGTH_SHORT).show();
         } else {
-            // Muestra el fragmento de notificaciones
+            // Show the notifications fragment
             if (!notificationsFragment.isAdded()) {
+                // Add the notifications fragment if not added before
                 transaction.add(R.id.notifications_container, notificationsFragment);
-                Toast.makeText(this, "Fragmento agregado", Toast.LENGTH_SHORT).show();
             } else {
+                // Show the notifications fragment if already added
                 transaction.show(notificationsFragment);
-                Toast.makeText(this, "Fragmento Mostrado", Toast.LENGTH_SHORT).show();
             }
         }
+        // Commit the transaction
         transaction.commit();
+        // Update the flag for fragment visibility
         isNotificationsFragmentVisible = !isNotificationsFragmentVisible;
     }
 
+    // Hide the notifications fragment.
     private void hideNotificationsFragment() {
         if (isNotificationsFragmentVisible) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            // Hide the notifications fragment
             transaction.hide(notificationsFragment);
+            // Commit the transaction
             transaction.commit();
+            // Update the flag for fragment visibility
             isNotificationsFragmentVisible = false;
         }
     }

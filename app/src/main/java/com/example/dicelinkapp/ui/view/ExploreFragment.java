@@ -17,22 +17,28 @@ public class ExploreFragment extends Fragment {
 
     private FragmentExploreBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        ExploreViewModel exploreViewModel =
-                new ViewModelProvider(this).get(ExploreViewModel.class);
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Create ViewModel for ExploreFragment
+        ExploreViewModel exploreViewModel = new ViewModelProvider(this).get(ExploreViewModel.class);
 
+        // Inflate the layout for this fragment using ViewBinding
         binding = FragmentExploreBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        // Find TextView from layout
         final TextView textView = binding.textExplore;
+
+        // Observe LiveData from ViewModel to update TextView
         exploreViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         return root;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        // Clear the ViewBinding reference to avoid memory leaks
         binding = null;
     }
 }
