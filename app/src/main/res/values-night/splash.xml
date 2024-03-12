@@ -4,7 +4,7 @@
     <style name="Theme.DiceLinkApp.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#C3C3C3</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splashscreen_dice</item>
-        <item name="windowSplashScreenAnimationDuration">2000</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
         <item name="postSplashScreenTheme">@style/Theme.DiceLinkApp</item>
     </style>
 

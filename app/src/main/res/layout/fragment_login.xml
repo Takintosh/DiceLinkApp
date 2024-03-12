@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="@string/signIn" />
+            android:text="@string/signInBtn" />
 
         <TextView
             android:id="@+id/tvForgotPassword"

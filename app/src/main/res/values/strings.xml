@@ -7,17 +7,36 @@
     <string name="passwordHint">Password</string>
     <string name="forgotPassword">Forgot Password?</string>
     <string name="loginOr">- Or -</string>
-    <string name="signIn">Sign In</string>
+    <string name="signInBtn">Sign In</string>
     <string name="signInWithGoogle">Sign In with Google</string>
-    <string name="signUpHint">Don\'t have an account? Sign up</string>
-    <string name="signUp">Sign Up</string>
+    <string name="signUpHint">Don\'t have an account? %1$s</string>
+    <string name="signUpLink">Sign Up</string>
 
     <string name="register">Register</string>
     <string name="registerSub">Create your new account</string>
-    <string name="signInHint">Already have an account? Sign in</string>
+    <string name="signInHint">Already have an account? %1$s</string>
+    <string name="signInLink">Sign In</string>
+    <string name="signUpBtn">Sign Up</string>
     <string name="signUpOr">- Or -</string>
     <string name="signUpGoogle">Sign Up with Google</string>
     <string name="termsAndConditionsCheckbox">I agree to the terms and conditions</string>
     <string name="privacyCheckbox">I agree to the privacy policy</string>
+
+    <string name="tvPassRecovery">Password Recovery</string>
+    <string name="usernameOrEmail">Username or Email</string>
+    <string name="recoveryBtn">Recover Password</string>
+
+    <string name="nav_title_explore">Explore</string>
+    <string name="nav_title_gametables">Game Tables</string>
+    <string name="nav_title_account">Account</string>
+    <string name="nav_title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dashboard_alt">DashboardAltActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
 
 </resources>
