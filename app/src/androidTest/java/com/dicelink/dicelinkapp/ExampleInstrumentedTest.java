@@ -1,4 +1,4 @@
-package com.example.dicelinkapp;
+package com.dicelink.dicelinkapp;
 
 import android.content.Context;
 

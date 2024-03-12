@@ -1,4 +1,4 @@
-package com.example.dicelinkapp.ui.view;
+package com.dicelink.dicelinkapp.ui.view;
 
 public interface FragmentCallback {
 

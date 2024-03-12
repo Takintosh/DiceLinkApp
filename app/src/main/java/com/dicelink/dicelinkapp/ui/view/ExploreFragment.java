@@ -1,4 +1,4 @@
-package com.example.dicelinkapp.ui.view;
+package com.dicelink.dicelinkapp.ui.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.dicelinkapp.databinding.FragmentExploreBinding;
-import com.example.dicelinkapp.viewmodel.ExploreViewModel;
+import com.dicelink.dicelinkapp.databinding.FragmentExploreBinding;
+import com.dicelink.dicelinkapp.viewmodel.ExploreViewModel;
 
 public class ExploreFragment extends Fragment {
 

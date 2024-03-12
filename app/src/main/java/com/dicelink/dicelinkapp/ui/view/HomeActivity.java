@@ -1,4 +1,4 @@
-package com.example.dicelinkapp.ui.view;
+package com.dicelink.dicelinkapp.ui.view;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,7 +15,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.dicelinkapp.R;
+import com.dicelink.dicelinkapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 

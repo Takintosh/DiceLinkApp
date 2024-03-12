@@ -1,4 +1,4 @@
-package com.example.dicelinkapp.ui.view;
+package com.dicelink.dicelinkapp.ui.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.dicelinkapp.R;
+import com.dicelink.dicelinkapp.R;
 
 
 public class PasswordRecoveryFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.dicelinkapp.ui.view;
+package com.dicelink.dicelinkapp.ui.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dicelinkapp.R;
+import com.dicelink.dicelinkapp.R;
 
 public class RegisterFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.dicelinkapp.ui.view;
+package com.dicelink.dicelinkapp.ui.view;
 import androidx.fragment.app.Fragment;
 
 public class RegisterFragmentFactory implements FragmentFactory {

@@ -1,4 +1,4 @@
-package com.example.dicelinkapp;
+package com.dicelink.dicelinkapp;
 
 import org.junit.Test;
 

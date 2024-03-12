@@ -1,4 +1,4 @@
-package com.example.dicelinkapp.viewmodel;
+package com.dicelink.dicelinkapp.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
