@@ -11,25 +11,12 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        android:elevation="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="167dp"
-            tools:layout_editor_absoluteY="1dp">
-
-            <ImageView
-                android:id="@+id/toolbar_logo"
-                android:layout_width="160dp"
-                android:layout_height="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/toolbar_logo" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@drawable/toolbar_logo"
+        app:menu="@menu/toolbar_menu"
+        app:title=" " >
 
     </androidx.appcompat.widget.Toolbar>
