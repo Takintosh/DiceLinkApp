@@ -2,27 +2,44 @@ package com.dicelink.dicelinkapp.ui.view;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.dicelink.dicelinkapp.R;
+import com.dicelink.dicelinkapp.databinding.FragmentNotificationsBinding;
+import com.dicelink.dicelinkapp.viewmodel.NotificationsViewModel;
 
 
 public class NotificationsFragment extends Fragment {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private FragmentNotificationsBinding binding;
 
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Create ViewModel for NotificationsFragment
+        NotificationsViewModel notificationsViewModel = new ViewModelProvider(this).get(NotificationsViewModel.class);
+
+        // Inflate the layout for this fragment using ViewBinding
+        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        // Find TextView from layout
+        final TextView textView = binding.textNotifications;
+
+        // Observe LiveData from ViewModel to update TextView
+        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        return root;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notifications, container, false);
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Clear the ViewBinding reference to avoid memory leaks
+        binding = null;
     }
 }

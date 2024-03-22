@@ -63,15 +63,26 @@
             android:hint="@string/passwordHint"
             android:autofillHints="" />
 
+        <EditText
+            android:id="@+id/etPasswordConfirmation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/passwordConfirmationHint"
+            android:autofillHints="" />
+
         <CheckBox
-            android:id="@+id/cbTandC"
+            android:id="@+id/cbAgreeTermsAndConditions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/termsAndConditionsCheckbox" />
 
         <CheckBox
-            android:id="@+id/cbPrivacy"
+            android:id="@+id/cbAgreePrivacyPolicy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
