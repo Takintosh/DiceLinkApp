@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,8 +26,10 @@ import com.dicelink.dicelinkapp.R;
 public class RegisterFragment extends Fragment {
 
     Button btnSignUp, btnSignUpGoogle;
-    EditText etUsername, etEmail, etPassword;
-    String username, email, password;
+    EditText etUsername, etEmail, etPassword, etPasswordConfirmation;
+    //CheckBox cbAgreeTermsAndConditions, cbAgreePrivacyPolicy;
+    String username, email, password, confirmPassword;
+    CheckBox termsAndConditions, privacyPolicy;
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
     private FragmentCallback mListener;
@@ -58,8 +61,11 @@ public class RegisterFragment extends Fragment {
         etUsername = view.findViewById(R.id.etUsername);
         etEmail = view.findViewById(R.id.etEmail);
         etPassword = view.findViewById(R.id.etPassword);
+        etPasswordConfirmation = view.findViewById(R.id.etPasswordConfirmation);
         btnSignUp = view.findViewById(R.id.btnSignUp);
         btnSignUpGoogle = view.findViewById(R.id.btnSignUpGoogle);
+        termsAndConditions = (CheckBox) view.findViewById(R.id.cbAgreeTermsAndConditions);
+        privacyPolicy = (CheckBox) view.findViewById(R.id.cbAgreePrivacyPolicy);
 
         // Initialize TextView for sign in hint with clickable link
         TextView textView = view.findViewById(R.id.tvSignInHint);
@@ -90,6 +96,39 @@ public class RegisterFragment extends Fragment {
                 username = etUsername.getText().toString();
                 email = etEmail.getText().toString();
                 password = etPassword.getText().toString();
+                confirmPassword = etPasswordConfirmation.getText().toString();
+
+                // Validate user input
+                if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                    // Show toast message if any field is empty
+                    Toast.makeText(getContext(), "All fields are required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!password.equals(confirmPassword)) {
+                    // Show toast message if password and confirm password do not match
+                    Toast.makeText(getContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (password.length() < 8) {
+                    // Show toast message if password is less than 8 characters
+                    Toast.makeText(getContext(), "Password must be at least 8 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!email.contains("@")) {
+                    // Show toast message if email does not contain '@' character
+                    Toast.makeText(getContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (preferences.contains("username") && preferences.getString("username", "").equals(username)) {
+                    // Show toast message if username is already registered
+                    Toast.makeText(getContext(), "Username already registered", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!termsAndConditions.isChecked() || !privacyPolicy.isChecked()) {
+                    // Show toast message if terms and conditions and privacy policy are not agreed
+                    Toast.makeText(getContext(), "Please agree to terms and conditions and privacy policy", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // Save user information in SharedPreferences
                 editor.putString("username", username);
@@ -112,6 +151,7 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // No functionality added for sign up with Google button yet
+                Toast.makeText(getContext(), "TODO", Toast.LENGTH_SHORT).show();
             }
         });
 
