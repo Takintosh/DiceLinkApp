@@ -24,8 +24,6 @@ public class HomeActivity extends AppCompatActivity {
     private NotificationsFragment notificationsFragment;
     private boolean isNotificationsFragmentVisible = false;
 
-//    String name = "sola";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
