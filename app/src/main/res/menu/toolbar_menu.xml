@@ -6,7 +6,7 @@
     <item
         android:id="@+id/action_notifications"
         android:enabled="true"
-        android:icon="@drawable/baseline_notifications_none_24"
+        android:icon="@drawable/notification_bell_pred"
         android:title="@string/nav_title_notifications"
         android:visible="true"
         app:showAsAction="always" />

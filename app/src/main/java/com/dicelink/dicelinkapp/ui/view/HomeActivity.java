@@ -1,5 +1,6 @@
 package com.dicelink.dicelinkapp.ui.view;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,6 +47,8 @@ public class HomeActivity extends AppCompatActivity {
         // Initialize notifications fragment
         notificationsFragment = new NotificationsFragment();
 
+        //change color navigationBar
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.primary_grey1)));
     }
 
     // Set up the bottom navigation bar with NavController.
