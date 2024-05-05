@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_grey1"
     tools:context=".ui.view.PasswordRecoveryFragment">
 
     <LinearLayout
@@ -27,7 +28,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:text="@string/tvPassRecovery"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/etUsername"
@@ -38,7 +40,8 @@
             android:ems="10"
             android:inputType="text"
             android:hint="@string/usernameOrEmail"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:textColorHint="@color/white" />
 
         <Button
             android:id="@+id/btnPassRecovery"
@@ -46,7 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="@string/recoveryBtn" />
+            android:text="@string/recoveryBtn"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/primary_red" />
 
     </LinearLayout>
 

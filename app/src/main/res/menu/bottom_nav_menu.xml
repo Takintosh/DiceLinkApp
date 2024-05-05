@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/navigation_explore"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/home_icon_not_selected"
         android:title="@string/nav_title_explore" />
 
     <item
         android:id="@+id/navigation_game_tables"
-        android:icon="@drawable/baseline_dashboard_24"
+        android:icon="@drawable/tables_homedice_not_selected"
         android:title="@string/nav_title_gametables" />
 
     <item

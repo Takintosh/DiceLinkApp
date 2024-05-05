@@ -108,14 +108,8 @@ public class LoginFragment extends Fragment {
                 // Retrieve stored username and password from shared preferences
                 String uUsername, uPassword;
 
-
-
-//                uUsername = preferences.getString("username", null);
-//                uPassword = preferences.getString("password", null);
-                uUsername = "admin";
-                uPassword = "root";
-
-
+                uUsername = preferences.getString("username", null);
+                uPassword = preferences.getString("password", null);
 
                 // Check if the entered credentials match the stored credentials
                 if (username.equals(uUsername) && password.equals(uPassword)) {

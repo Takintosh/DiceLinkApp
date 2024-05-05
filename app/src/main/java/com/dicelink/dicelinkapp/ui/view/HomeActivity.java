@@ -1,6 +1,8 @@
 package com.dicelink.dicelinkapp.ui.view;
 
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,6 +62,22 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(
                 bottomNavigationView,
                 navHostFragment.getNavController());
+
+//        bottomNavigationView.setOnItemSelectedListener(item -> {
+//            // Change the icon of the selected item to match color visually
+//            switch (item.getItemId()) {
+//                case R.id.navigation_explore:
+//                    item.setIcon(R.drawable.home_icon_selected);
+//                    break;
+//                case R.id.navigation_game_tables:
+//                    item.setIcon(R.drawable.tables_homedice_selected);
+//                    break;
+//                case R.id.navigation_account:
+//                    item.setIcon(R.drawable.user_icon_selected);
+//                    break;
+//            }
+//            return true;
+//        });
 
         NavController navController = navHostFragment.getNavController();
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
