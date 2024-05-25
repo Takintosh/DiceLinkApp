@@ -107,6 +107,7 @@ public class LoginFragment extends Fragment {
 
                 // Retrieve stored username and password from shared preferences
                 String uUsername, uPassword;
+
                 uUsername = preferences.getString("username", null);
                 uPassword = preferences.getString("password", null);
 

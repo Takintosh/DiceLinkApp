@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary_red">#D21312</color>
+    <color name="deny_red1">#C40C0C</color>
+    <color name="deny_red2">#B31312</color>
+    <color name="accept_green1">#1A5D1A</color>
+    <color name="accept_green2">#1A4D2E</color>
+    <color name="primary_grey1">#2b2b2b</color>
+    <color name="primary_grey2">#231F20</color>
 </resources>
