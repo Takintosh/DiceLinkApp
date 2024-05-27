@@ -22,6 +22,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dicelink.dicelinkapp.R;
+import com.dicelink.dicelinkapp.data.remote.ApiClient;
+import com.dicelink.dicelinkapp.data.remote.AuthApiService;
+import com.dicelink.dicelinkapp.data.remote.RegistrationRequest;
+import com.dicelink.dicelinkapp.model.AuthResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterFragment extends Fragment {
 
@@ -119,30 +127,78 @@ public class RegisterFragment extends Fragment {
                     Toast.makeText(getContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (preferences.contains("username") && preferences.getString("username", "").equals(username)) {
-                    // Show toast message if username is already registered
-                    Toast.makeText(getContext(), "Username already registered", Toast.LENGTH_SHORT).show();
-                    return;
-                }
                 if (!termsAndConditions.isChecked() || !privacyPolicy.isChecked()) {
                     // Show toast message if terms and conditions and privacy policy are not agreed
                     Toast.makeText(getContext(), "Please agree to terms and conditions and privacy policy", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                // Save user information in SharedPreferences
-                editor.putString("username", username);
-                editor.putString("email", email);
-                editor.putString("password", password);
-                editor.apply();
 
-                // Show toast message indicating user registration
-                Toast.makeText(getContext(), "User Registered", Toast.LENGTH_SHORT).show();
-                if (getActivity() instanceof FragmentCallback) {
-                    // Call saveSessionState() method of the activity to save session state
-                    mListener.saveSessionState();
-                    mListener.redirectToDashboard();
-                }
+                btnSignUp.setEnabled(false);
+                btnSignUpGoogle.setEnabled(false);
+
+                // Create an instance of the AuthApiService interface
+                AuthApiService apiService = ApiClient.getClient().create(AuthApiService.class);
+
+                // Create a RegistrationRequest object with user input
+                RegistrationRequest registrationRequest = new RegistrationRequest();
+
+                // Set user input values to the RegistrationRequest object
+                registrationRequest.setUsername(username);
+                registrationRequest.setEmail(email);
+                registrationRequest.setPassword(password);
+                registrationRequest.setPasswordConfirmation(confirmPassword);
+                registrationRequest.setTerms(true);
+                registrationRequest.setPrivacy(true);
+
+                // Call the registerUser method of the AuthApiService interface
+                Call<AuthResponse> call = apiService.registerUser(registrationRequest);
+
+                // Enqueue the call to send the request to the server
+                call.enqueue(new Callback<AuthResponse>() {
+                    @Override
+                    public void onResponse(Call<AuthResponse> call, Response<AuthResponse> response) {
+
+                        // Verify response status code
+                        if (response.code() == 200) {
+
+                            // Handle 200 status code and save user session in SharedPreferences
+                            editor.putString("username", response.body().getUsername());
+                            editor.putString("token", response.body().getToken());
+                            editor.apply();
+
+                            Toast.makeText(getContext(), "User Registered", Toast.LENGTH_SHORT).show();
+                            if (getActivity() instanceof FragmentCallback) {
+                                // Call saveSessionState() method of the activity to save session state
+                                mListener.saveSessionState();
+                                mListener.redirectToDashboard();
+                            }
+
+                        } else if (response.code() == 406) {
+                            // Handle 406 status code
+                            assert response.body() != null;
+                            Toast.makeText(getContext(),  response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            return;
+                        } else {
+                            // Handle other status codes
+                            assert response.body() != null;
+                            Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        btnSignUp.setEnabled(true);
+                        btnSignUpGoogle.setEnabled(true);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<AuthResponse> call, Throwable t) {
+                        // Handle failure to connect to the server
+                        Toast.makeText(getContext(), "Communication error. Please, check internet connection or try later.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                });
+
             }
         });
 
