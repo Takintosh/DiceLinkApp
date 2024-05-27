@@ -166,6 +166,9 @@ public class RegisterFragment extends Fragment {
                             // Handle 200 status code and save user session in SharedPreferences
                             editor.putString("username", response.body().getUsername());
                             editor.putString("token", response.body().getToken());
+                            editor.putString("refreshToken", response.body().getRefreshToken());
+                            editor.putString("tokenExpiration", response.body().getTokenExpiration());
+                            editor.putString("refreshTokenExpiration", response.body().getRefreshTokenExpiration());
                             editor.apply();
 
                             Log.d("RegisterFragment", "User Registered");

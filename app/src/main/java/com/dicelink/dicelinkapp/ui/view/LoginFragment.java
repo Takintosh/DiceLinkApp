@@ -143,6 +143,9 @@ public class LoginFragment extends Fragment {
                             assert response.body() != null;
                             editor.putString("username", response.body().getUsername());
                             editor.putString("token", response.body().getToken());
+                            editor.putString("refreshToken", response.body().getRefreshToken());
+                            editor.putString("tokenExpiration", response.body().getTokenExpiration());
+                            editor.putString("refreshTokenExpiration", response.body().getRefreshTokenExpiration());
                             editor.apply();
 
                             Log.d("LoginFragment", "Login successful");

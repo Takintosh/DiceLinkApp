@@ -7,6 +7,15 @@ public class AuthResponse {
     @SerializedName("token")
     private String token;
 
+    @SerializedName("refresh_token")
+    private String refreshToken;
+
+    @SerializedName("token_expiration")
+    private String tokenExpiration;
+
+    @SerializedName("refresh_token_expiration")
+    private String refreshTokenExpiration;
+
     @SerializedName("username")
     private String username;
 
@@ -23,6 +32,27 @@ public class AuthResponse {
     }
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
+
+    public String getTokenExpiration() {
+        return tokenExpiration;
+    }
+    public void setTokenExpiration(String tokenExpiration) {
+        this.tokenExpiration = tokenExpiration;
+    }
+
+    public String getRefreshTokenExpiration() {
+        return refreshTokenExpiration;
+    }
+    public void setRefreshTokenExpiration(String refreshTokenExpiration) {
+        this.refreshTokenExpiration = refreshTokenExpiration;
     }
 
     public String getUsername() {
