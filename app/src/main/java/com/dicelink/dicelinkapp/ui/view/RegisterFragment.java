@@ -12,6 +12,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -133,14 +134,14 @@ public class RegisterFragment extends Fragment {
                     return;
                 }
 
-
+                // Disable sign-up buttons to prevent multiple clicks
                 btnSignUp.setEnabled(false);
                 btnSignUpGoogle.setEnabled(false);
 
                 // Create an instance of the AuthApiService interface
                 AuthApiService apiService = ApiClient.getClient().create(AuthApiService.class);
 
-                // Create a RegistrationRequest object with user input
+                // Create a new instance of the RegistrationRequest class
                 RegistrationRequest registrationRequest = new RegistrationRequest();
 
                 // Set user input values to the RegistrationRequest object
@@ -167,6 +168,7 @@ public class RegisterFragment extends Fragment {
                             editor.putString("token", response.body().getToken());
                             editor.apply();
 
+                            Log.d("RegisterFragment", "User Registered");
                             Toast.makeText(getContext(), "User Registered", Toast.LENGTH_SHORT).show();
                             if (getActivity() instanceof FragmentCallback) {
                                 // Call saveSessionState() method of the activity to save session state
@@ -186,9 +188,6 @@ public class RegisterFragment extends Fragment {
                             return;
                         }
 
-                        btnSignUp.setEnabled(true);
-                        btnSignUpGoogle.setEnabled(true);
-
                     }
 
                     @Override
@@ -196,8 +195,13 @@ public class RegisterFragment extends Fragment {
                         // Handle failure to connect to the server
                         Toast.makeText(getContext(), "Communication error. Please, check internet connection or try later.", Toast.LENGTH_SHORT).show();
                         return;
+
                     }
                 });
+
+                // Enable sign-up buttons after the request is completed
+                btnSignUp.setEnabled(true);
+                btnSignUpGoogle.setEnabled(true);
 
             }
         });

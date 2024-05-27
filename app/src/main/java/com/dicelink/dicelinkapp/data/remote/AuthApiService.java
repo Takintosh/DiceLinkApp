@@ -16,4 +16,9 @@ public interface AuthApiService {
     @POST("register")
     Call<AuthResponse> registerUser(@Body RegistrationRequest request);
 
+    // Login a user
+    @Headers("x-mock-response-name: loginOK")
+    @POST("login")
+    Call<AuthResponse> loginUser(@Body LoginRequest request);
+
 }
