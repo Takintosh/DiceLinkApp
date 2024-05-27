@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_grey1"
     tools:context=".ui.view.RegisterFragment">
 
     <LinearLayout
@@ -19,7 +20,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:text="@string/register"
-            android:textSize="34sp" />
+            android:textSize="34sp"
+            android:textColor="@color/white" />
 
 
         <TextView
@@ -28,7 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:text="@string/registerSub" />
+            android:text="@string/registerSub"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/etUsername"
@@ -39,7 +42,8 @@
             android:ems="10"
             android:inputType="text"
             android:hint="@string/usernameHint"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/etEmail"
@@ -50,7 +54,8 @@
             android:ems="10"
             android:inputType="textEmailAddress"
             android:hint="@string/emailHint"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/etPassword"
@@ -61,7 +66,8 @@
             android:ems="10"
             android:inputType="textPassword"
             android:hint="@string/passwordHint"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/etPasswordConfirmation"
@@ -72,21 +78,24 @@
             android:ems="10"
             android:inputType="textPassword"
             android:hint="@string/passwordConfirmationHint"
-            android:autofillHints="" />
+            android:autofillHints=""
+            android:textColorHint="@color/white" />
 
         <CheckBox
             android:id="@+id/cbAgreeTermsAndConditions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/termsAndConditionsCheckbox" />
+            android:text="@string/termsAndConditionsCheckbox"
+            android:textColor="@color/white" />
 
         <CheckBox
             android:id="@+id/cbAgreePrivacyPolicy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:text="@string/privacyCheckbox" />
+            android:text="@string/privacyCheckbox"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnSignUp"
@@ -94,7 +103,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:text="@string/signUpBtn" />
+            android:text="@string/signUpBtn"
+            android:backgroundTint="@color/primary_red" />
 
 
         <TextView
@@ -103,7 +113,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="@string/signUpOr" />
+            android:text="@string/signUpOr"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnSignUpGoogle"
@@ -111,7 +122,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:text="@string/signUpGoogle" />
+            android:text="@string/signUpGoogle"
+            android:backgroundTint="@color/primary_red" />
 
         <TextView
             android:id="@+id/tvSignInHint"
@@ -119,7 +131,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:text="@string/signInHint"/>
+            android:text="@string/signInHint"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>
