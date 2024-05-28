@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dicelink.dicelinkapp.R;
+import com.dicelink.dicelinkapp.data.local.AuthPreferences;
 import com.dicelink.dicelinkapp.data.remote.ApiClient;
 import com.dicelink.dicelinkapp.data.remote.AuthApiService;
 import com.dicelink.dicelinkapp.data.remote.RegistrationRequest;
@@ -36,7 +37,6 @@ public class RegisterFragment extends Fragment {
 
     Button btnSignUp, btnSignUpGoogle;
     EditText etUsername, etEmail, etPassword, etPasswordConfirmation;
-    //CheckBox cbAgreeTermsAndConditions, cbAgreePrivacyPolicy;
     String username, email, password, confirmPassword;
     CheckBox termsAndConditions, privacyPolicy;
     SharedPreferences preferences;
@@ -163,16 +163,20 @@ public class RegisterFragment extends Fragment {
                         // Verify response status code
                         if (response.code() == 200) {
 
-                            // Handle 200 status code and save user session in SharedPreferences
-                            editor.putString("username", response.body().getUsername());
-                            editor.putString("token", response.body().getToken());
-                            editor.putString("refreshToken", response.body().getRefreshToken());
-                            editor.putString("tokenExpiration", response.body().getTokenExpiration());
-                            editor.putString("refreshTokenExpiration", response.body().getRefreshTokenExpiration());
-                            editor.apply();
+                            // Create an instance of AuthPreferences
+                            AuthPreferences authPrefs = new AuthPreferences(getContext());
 
-                            Log.d("RegisterFragment", "User Registered");
+                            // Save data to AuthPreferences
+                            assert response.body() != null;
+                            authPrefs.saveToken(response.body().getArgs().getToken());
+                            authPrefs.saveRefreshToken(response.body().getArgs().getRefreshToken());
+                            authPrefs.saveUsername(response.body().getArgs().getUsername());
+                            authPrefs.saveTokenExpiration(Long.parseLong(response.body().getArgs().getTokenExpiration()));
+                            authPrefs.saveRefreshTokenExpiration(Long.parseLong(response.body().getArgs().getRefreshTokenExpiration()));
+
+                            Log.d("RegisterFragment", authPrefs.getToken());
                             Toast.makeText(getContext(), "User Registered", Toast.LENGTH_SHORT).show();
+
                             if (getActivity() instanceof FragmentCallback) {
                                 // Call saveSessionState() method of the activity to save session state
                                 mListener.saveSessionState();
@@ -182,12 +186,18 @@ public class RegisterFragment extends Fragment {
                         } else if (response.code() == 406) {
                             // Handle 406 status code
                             assert response.body() != null;
-                            Toast.makeText(getContext(),  response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(),  response.body().getArgs().getMessage(), Toast.LENGTH_SHORT).show();
+                            // Enable sign-up buttons after the request is completed
+                            btnSignUp.setEnabled(true);
+                            btnSignUpGoogle.setEnabled(true);
                             return;
                         } else {
                             // Handle other status codes
                             assert response.body() != null;
-                            Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), response.body().getArgs().getMessage(), Toast.LENGTH_SHORT).show();
+                            // Enable sign-up buttons after the request is completed
+                            btnSignUp.setEnabled(true);
+                            btnSignUpGoogle.setEnabled(true);
                             return;
                         }
 
@@ -196,15 +206,18 @@ public class RegisterFragment extends Fragment {
                     @Override
                     public void onFailure(Call<AuthResponse> call, Throwable t) {
                         // Handle failure to connect to the server
+                        Log.e("LoginFragment", "Error: " + t.getMessage());
                         Toast.makeText(getContext(), "Communication error. Please, check internet connection or try later.", Toast.LENGTH_SHORT).show();
+
+                        // Enable sign-up buttons after the request is completed
+                        btnSignUp.setEnabled(true);
+                        btnSignUpGoogle.setEnabled(true);
+
                         return;
 
                     }
                 });
 
-                // Enable sign-up buttons after the request is completed
-                btnSignUp.setEnabled(true);
-                btnSignUpGoogle.setEnabled(true);
 
             }
         });

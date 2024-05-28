@@ -1,7 +1,6 @@
 package com.dicelink.dicelinkapp.ui.view;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,10 +21,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dicelink.dicelinkapp.R;
+import com.dicelink.dicelinkapp.data.local.AuthPreferences;
 import com.dicelink.dicelinkapp.data.remote.ApiClient;
 import com.dicelink.dicelinkapp.data.remote.AuthApiService;
 import com.dicelink.dicelinkapp.data.remote.LoginRequest;
-import com.dicelink.dicelinkapp.data.remote.RegistrationRequest;
 import com.dicelink.dicelinkapp.model.AuthResponse;
 
 import retrofit2.Call;
@@ -37,15 +36,11 @@ public class LoginFragment extends Fragment {
     Button btnSignIn, btnSignInGoogle;
     EditText etUsername, etPassword;
     String username, password;
-    SharedPreferences preferences;
-    SharedPreferences.Editor editor;
     private FragmentCallback mListener;
+
 
     // Called when the fragment is attached to the context
     public void onAttach(Context context) {
-        // Get reference to shared preferences
-        preferences = context.getSharedPreferences("preferences", Context.MODE_PRIVATE);
-        editor = preferences.edit();
         super.onAttach(context);
 
         // Check if the context implements FragmentCallback interface
@@ -139,16 +134,19 @@ public class LoginFragment extends Fragment {
                         // Verify response status code
                         if (response.code() == 200) {
 
-                            // Handle 200 status code and save user session in SharedPreferences
-                            assert response.body() != null;
-                            editor.putString("username", response.body().getUsername());
-                            editor.putString("token", response.body().getToken());
-                            editor.putString("refreshToken", response.body().getRefreshToken());
-                            editor.putString("tokenExpiration", response.body().getTokenExpiration());
-                            editor.putString("refreshTokenExpiration", response.body().getRefreshTokenExpiration());
-                            editor.apply();
+                            // Create an instance of AuthPreferences
+                            AuthPreferences authPrefs = new AuthPreferences(getContext());
 
-                            Log.d("LoginFragment", "Login successful");
+
+                            // Save data to AuthPreferences
+                            assert response.body() != null;
+                            authPrefs.saveToken(response.body().getArgs().getToken());
+                            authPrefs.saveRefreshToken(response.body().getArgs().getRefreshToken());
+                            authPrefs.saveUsername(response.body().getArgs().getUsername());
+                            authPrefs.saveTokenExpiration(Long.parseLong(response.body().getArgs().getTokenExpiration()));
+                            authPrefs.saveRefreshTokenExpiration(Long.parseLong(response.body().getArgs().getRefreshTokenExpiration()));
+
+                            Log.d("LoginFragment", authPrefs.getToken());
 
                             // If the activity implements FragmentCallback interface call saveSessionState() method and redirectToDashboard() method
                             if (getActivity() instanceof FragmentCallback) {
@@ -159,11 +157,17 @@ public class LoginFragment extends Fragment {
                         } else if (response.code() == 401) {
                             // Handle 401 status code
                             assert response.body() != null;
-                            Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), response.body().getArgs().getMessage(), Toast.LENGTH_SHORT).show();
+                            // Enable sign-in buttons after the request is completed
+                            btnSignIn.setEnabled(true);
+                            btnSignInGoogle.setEnabled(true);
                             return;
                         } else {
                             // Handle other status codes
                             Toast.makeText(getContext(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                            // Enable sign-in buttons after the request is completed
+                            btnSignIn.setEnabled(true);
+                            btnSignInGoogle.setEnabled(true);
                             return;
                         }
 
@@ -174,12 +178,15 @@ public class LoginFragment extends Fragment {
                         // Handle failure to connect to the server
                         Log.e("LoginFragment", "Error: " + t.getMessage());
                         Toast.makeText(getContext(), "Communication error. Please, check internet connection or try later.", Toast.LENGTH_SHORT).show();
+
+                        // Enable sign-in buttons after the request is completed
+                        btnSignIn.setEnabled(true);
+                        btnSignInGoogle.setEnabled(true);
+
+                        return;
                     }
                 });
 
-                // Enable sign-in buttons after the request is completed
-                btnSignIn.setEnabled(true);
-                btnSignInGoogle.setEnabled(true);
 
             }
         });
