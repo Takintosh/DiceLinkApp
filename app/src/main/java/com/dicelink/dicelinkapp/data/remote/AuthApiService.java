@@ -21,4 +21,9 @@ public interface AuthApiService {
     @POST("login")
     Call<AuthResponse> loginUser(@Body LoginRequest request);
 
+    // Request password recovery
+    @Headers("x-mock-response-name: passRecoveryOK")
+    @GET("password-recovery")
+    Call<AuthResponse> passwordRecovery(@Query("username") String username);
+
 }
