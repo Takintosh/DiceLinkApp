@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- primary color for selected item in navigation when button is pressed is Primary red -->
+    <item android:color="@color/primary_red" android:state_checked="true"></item>
+    <!-- default color when button is not pressed is black for contrast with primary_gray1 of background -->
+    <item android:color="@color/black" android:state_checked="false"></item>
+
+</selector>

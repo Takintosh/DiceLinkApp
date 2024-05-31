@@ -4,7 +4,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,7 +19,6 @@ import com.dicelink.dicelinkapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
-
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -50,7 +48,8 @@ public class HomeActivity extends AppCompatActivity {
         notificationsFragment = new NotificationsFragment();
 
         //change color navigationBar
-        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.primary_grey1)));
+        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable
+                (getResources().getColor(R.color.primary_grey1)));
     }
 
     // Set up the bottom navigation bar with NavController.
@@ -62,22 +61,6 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(
                 bottomNavigationView,
                 navHostFragment.getNavController());
-
-//        bottomNavigationView.setOnItemSelectedListener(item -> {
-//            // Change the icon of the selected item to match color visually
-//            switch (item.getItemId()) {
-//                case R.id.navigation_explore:
-//                    item.setIcon(R.drawable.home_icon_selected);
-//                    break;
-//                case R.id.navigation_game_tables:
-//                    item.setIcon(R.drawable.tables_homedice_selected);
-//                    break;
-//                case R.id.navigation_account:
-//                    item.setIcon(R.drawable.user_icon_selected);
-//                    break;
-//            }
-//            return true;
-//        });
 
         NavController navController = navHostFragment.getNavController();
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
@@ -141,5 +124,4 @@ public class HomeActivity extends AppCompatActivity {
             isNotificationsFragmentVisible = false;
         }
     }
-
 }
