@@ -15,6 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/primary_grey1"
         app:logo="@drawable/dicelink_logosvg"
         app:menu="@menu/toolbar_menu"
         app:title=" ">

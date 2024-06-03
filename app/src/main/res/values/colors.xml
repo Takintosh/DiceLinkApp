@@ -9,4 +9,21 @@
     <color name="accept_green2">#1A4D2E</color>
     <color name="primary_grey1">#2b2b2b</color>
     <color name="primary_grey2">#231F20</color>
+
+    <!--  PROFILE COLORS  -->
+    <color name="colorPrimary">#c2185b</color>
+    <color name="colorPrimaryDark">#8c0032</color>
+    <color name="colorAccent">#fa5788</color>
+    <color name="colorGrey">#efefef</color>
+    <color name="colorDarkGery">#d5d5d5</color>
+    <color name="colorNormalText">#585858</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparentBlack">#bc500d3b</color>
+    <color name="colorLightBlack">#252525</color>
+    <color name="colorDarkBlue">#514688</color>
+    <color name="colorMoreGreen">#47D476</color>
+    <color name="colorGreen">#77d981</color>
+    <color name="colorLightBlue">#5f5881</color>
+    <color name="colorYellow">#FFC107</color>
+    <color name="colorUserImgOverlay">#FFFFFFFF</color>
 </resources>
