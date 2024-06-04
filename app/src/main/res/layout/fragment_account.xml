@@ -111,7 +111,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:visibility="visible"
-                app:cardCornerRadius="2dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="2dp">
 
                 <LinearLayout
@@ -154,6 +154,170 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Interests Section -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp"
+                                android:text="Interests"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorNormalText" />
+                        </LinearLayout>
+
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            app:alignItems="center"
+                            app:flexWrap="wrap"
+                            app:justifyContent="space_between">
+
+                            <!-- Etiqueta 1 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="D&amp;D"
+                                android:textColor="@color/white" />
+
+                            <!-- Etiqueta 2 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/bardo"
+                                android:textColor="@color/white" />
+
+                            <!-- Etiqueta 3 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/warlock"
+                                android:textColor="@color/white" />
+
+                            <!-- Etiqueta 4 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/mage"
+                                android:textColor="@color/white" />
+
+                            <!-- Etiqueta 5 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/paladin"
+                                android:textColor="@color/white" />
+
+                            <!-- Etiqueta 6 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/rogue"
+                                android:textColor="@color/white" />
+
+                            <!-- Etiqueta 7 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/human"
+                                android:textColor="@color/white" />
+
+                            <!-- Etiqueta 8 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/half_elf"
+                                android:textColor="@color/white" />
+
+                            <!-- Etiqueta 9 -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/interests_label_9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/cyberpunk"
+                                android:textColor="@color/white" />
+
+                        </com.google.android.flexbox.FlexboxLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Report Button -->
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_button_report_grey"
+                    android:text="Report" />
+
+                <!-- Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/deny_request_icon" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/message_request_icon" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/accept_request_icon" />
+                </LinearLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textAccount"

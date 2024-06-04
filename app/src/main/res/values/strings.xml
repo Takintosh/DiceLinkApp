@@ -39,5 +39,14 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="human">Human</string>
+    <string name="cyberpunk">Cyberpunk</string>
+    <string name="rogue">Rogue</string>
+    <string name="paladin">Paladin</string>
+    <string name="mage">Mage</string>
+    <string name="warlock">Warlock</string>
+    <string name="bardo">Bardo</string>
+    <string name="dungeons_and_dragons">Dungeons and Dragons</string>
+    <string name="half_elf">Half-Elf</string>
 
 </resources>
