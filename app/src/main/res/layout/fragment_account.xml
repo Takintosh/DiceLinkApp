@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGrey"
+    android:background="@color/primary_grey5"
     tools:context=".ui.view.AccountFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -104,6 +104,7 @@
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
+                android:backgroundTint="@color/primary_grey2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -133,7 +134,7 @@
                             android:textSize="18sp"
                             android:text="About me"
                             android:textStyle="bold"
-                            android:textColor="@color/colorNormalText" />
+                            android:textColor="@color/white" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -147,6 +148,7 @@
                         android:weightSum="2">
 
                         <TextView
+                            android:textColor="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.">
@@ -163,6 +165,7 @@
 
                 <!-- Interests Section -->
                 <androidx.cardview.widget.CardView
+                    android:backgroundTint="@color/primary_grey2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -187,7 +190,7 @@
                                 android:textSize="18sp"
                                 android:text="Interests"
                                 android:textStyle="bold"
-                                android:textColor="@color/colorNormalText" />
+                                android:textColor="@color/white" />
                         </LinearLayout>
 
                         <com.google.android.flexbox.FlexboxLayout
@@ -288,7 +291,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/bg_button_report_grey"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/primary_red"
                     android:text="Report" />
 
                 <!-- Action Buttons -->
@@ -300,20 +304,20 @@
                     android:orientation="horizontal">
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
                         android:layout_margin="8dp"
                         android:background="@drawable/deny_request_icon" />
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
                         android:layout_margin="8dp"
                         android:background="@drawable/message_request_icon" />
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
                         android:layout_margin="8dp"
                         android:background="@drawable/accept_request_icon" />
                 </LinearLayout>
