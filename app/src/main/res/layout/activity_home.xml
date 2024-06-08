@@ -291,7 +291,7 @@
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom">
+                        android:layout_gravity="center_horizontal">
 
                         <Button
                             android:layout_gravity="center_horizontal"
@@ -305,6 +305,8 @@
 
                 </LinearLayout>
             </LinearLayout>
+
+
 
             <!-- Add more party items here -->
 
