@@ -208,6 +208,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="D&amp;D"
+                                android:backgroundTint="@color/primary_red"
                                 android:textColor="@color/white" />
 
                             <!-- Etiqueta 2 -->
@@ -217,6 +218,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="@string/bardo"
+                                android:backgroundTint="@color/primary_red"
                                 android:textColor="@color/white" />
 
                             <!-- Etiqueta 3 -->
@@ -226,6 +228,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="@string/warlock"
+                                android:backgroundTint="@color/primary_grey4"
                                 android:textColor="@color/white" />
 
                             <!-- Etiqueta 4 -->
@@ -235,6 +238,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="@string/mage"
+                                android:backgroundTint="@color/primary_grey4"
                                 android:textColor="@color/white" />
 
                             <!-- Etiqueta 5 -->
@@ -244,6 +248,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="@string/paladin"
+                                android:backgroundTint="@color/primary_grey4"
                                 android:textColor="@color/white" />
 
                             <!-- Etiqueta 6 -->
@@ -253,6 +258,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="@string/rogue"
+                                android:backgroundTint="@color/primary_grey4"
                                 android:textColor="@color/white" />
 
                             <!-- Etiqueta 7 -->
@@ -262,6 +268,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="@string/human"
+                                android:backgroundTint="@color/primary_grey4"
                                 android:textColor="@color/white" />
 
                             <!-- Etiqueta 8 -->
@@ -271,6 +278,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="@string/half_elf"
+                                android:backgroundTint="@color/primary_grey4"
                                 android:textColor="@color/white" />
 
                             <!-- Etiqueta 9 -->
@@ -280,6 +288,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="4dp"
                                 android:text="@string/cyberpunk"
+                                android:backgroundTint="@color/primary_grey4"
                                 android:textColor="@color/white" />
 
                         </com.google.android.flexbox.FlexboxLayout>
@@ -293,6 +302,7 @@
                     android:layout_marginTop="16dp"
                     android:textStyle="bold"
                     android:backgroundTint="@color/primary_red"
+                    android:textColor="@color/white"
                     android:text="Report" />
 
                 <!-- Action Buttons -->
