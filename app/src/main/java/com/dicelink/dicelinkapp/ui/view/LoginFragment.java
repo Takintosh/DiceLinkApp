@@ -106,13 +106,14 @@ public class LoginFragment extends Fragment {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Retrieve username and password entered by the user
-                username = etUsername.getText().toString();
-                password = etPassword.getText().toString();
 
                 // Disable sign-in buttons to prevent multiple clicks
                 btnSignIn.setEnabled(false);
                 btnSignInGoogle.setEnabled(false);
+
+                // Retrieve username and password entered by the user
+                username = etUsername.getText().toString();
+                password = etPassword.getText().toString();
 
                 // Create an instance of the AuthApiService interface
                 AuthApiService apiService = ApiClient.getClient().create(AuthApiService.class);

@@ -45,9 +45,6 @@ public class RegisterFragment extends Fragment {
 
     // Method called when the fragment is attached to the activity
     public void onAttach(Context context) {
-        // Initialize SharedPreferences
-        preferences = context.getSharedPreferences("preferences", Context.MODE_PRIVATE);
-        editor = preferences.edit();
         super.onAttach(context);
 
         // Check if the activity implements FragmentCallback interface
