@@ -17,5 +17,6 @@
         android:backgroundTint="@color/primary_grey1"
         app:logo="@drawable/dicelink_logosvg"
         app:menu="@menu/toolbar_menu"
+        android:backgroundTint="@color/primary_grey1"
         app:title=" ">
     </androidx.appcompat.widget.Toolbar>
