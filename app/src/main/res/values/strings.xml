@@ -39,5 +39,24 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="human">Human</string>
+    <string name="cyberpunk">Cyberpunk</string>
+    <string name="rogue">Rogue</string>
+    <string name="paladin">Paladin</string>
+    <string name="mage">Mage</string>
+    <string name="warlock">Warlock</string>
+    <string name="bardo">Bardo</string>
+    <string name="dungeons_and_dragons">Dungeons and Dragons</string>
+    <string name="half_elf">Half-Elf</string>
+    <string name="user_profile_settings">User Profile Settings</string>
+    <string name="interests">Interests</string>
+    <string name="role">Role:</string>
+    <string name="archer">Archer</string>
+    <string name="solaris">Solaris</string>
+    <string name="diagon">Diagon</string>
+    <string name="fighter">Fighter</string>
+    <string name="zekken">Zekken</string>
+    <string name="has_dungeon_master">Has dungeon master</string>
+    <string name="user_1">User 1</string>
 
 </resources>
